@@ -1,0 +1,92 @@
+.title {
+  text-align: center;
+  font-size: 32px;
+  padding: 32px;
+}
+.addcustomer {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 24px;
+  flex-direction: column;
+}
+.element {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  width: 600px;
+}
+.formlabel {
+  width: 220px;
+}
+
+.forminput {
+  border: none;
+  box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px,
+    rgba(60, 64, 67, 0.15) 0px 1px 3px 1px;
+  padding: 12px;
+  width: 340px;
+  border-radius: 3px;
+}
+.forminput:focus {
+  border: none;
+  outline: none;
+  box-shadow: rgba(64, 192, 87, 0.493) 0px 0px 0px 3px;
+}
+
+.button {
+  color: #fff;
+  padding: 15px 25px;
+  background-color: rgb(47, 158, 68);
+  background-image: radial-gradient(
+      93% 87% at 87% 89%,
+      rgba(0, 0, 0, 0.23) 0%,
+      transparent 86.18%
+    ),
+    radial-gradient(
+      66% 66% at 26% 20%,
+      rgba(255, 255, 255, 0.55) 0%,
+      rgba(255, 255, 255, 0) 69.79%,
+      rgba(255, 255, 255, 0) 100%
+    );
+  box-shadow: inset -3px -3px 9px rgba(255, 255, 255, 0.25),
+    inset 0px 3px 9px rgba(255, 255, 255, 0.3),
+    inset 0px 1px 1px rgba(255, 255, 255, 0.6),
+    inset 0px -8px 36px rgba(0, 0, 0, 0.3),
+    inset 0px 1px 5px rgba(255, 255, 255, 0.6), 2px 19px 31px rgba(0, 0, 0, 0.2);
+  border-radius: 14px;
+  font-weight: bold;
+  font-size: 16px;
+
+  border: 0;
+
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+
+  cursor: pointer;
+}
+.button:hover {
+  background-color: #fff;
+  color: rgb(47, 158, 68);
+}
+.column {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+}
+.ele {
+  border: none;
+  box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px,
+    rgba(60, 64, 67, 0.15) 0px 1px 3px 1px;
+  padding: 12px;
+  border-radius: 3px;
+  width: 180px;
+}
+
+.addrow {
+  display: flex;
+  gap: 18px;
+  flex-direction: column;
+}

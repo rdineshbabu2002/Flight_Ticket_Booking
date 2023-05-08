@@ -1,6 +1,7 @@
 const path = require("path");
 const express = require("express");
 const morgan = require("morgan");
+const bodyParser = require("body-parser");
 const rateLimit = require("express-rate-limit");
 const cookieParser = require("cookie-parser");
 const cors = require("cors");
@@ -9,16 +10,24 @@ const cors = require("cors");
 // const globalErrorHandler = require('./controllers/errorController');
 // const tourRouter = require('./routes/tourRoutes');
 const userRouter = require("./routes/userRoutes");
-// const reviewRouter = require('./routes/reviewRoutes');
-// const bookingRouter = require('./routes/bookingRoutes');
+const flightRouter = require("./routes/flightRoutes");
+const bookingRouter = require("./routes/bookingRoutes");
 // const bookingController = require('./controllers/bookingController');
 // const viewRouter = require('./routes/viewRoutes');
 
 // Start express app
 const app = express();
+app.use(bodyParser.json());
+app.use(express.json());
+const corsOpts = {
+  origin: "*",
 
-app.use(cors());
-app.options("*", cors());
+  methods: ["GET", "POST", "DELETE", "PATCH"],
+
+  allowedHeaders: ["Content-Type"],
+};
+
+app.use(cors(corsOpts));
 
 // Development logging
 if (process.env.NODE_ENV === "development") {
@@ -27,7 +36,7 @@ if (process.env.NODE_ENV === "development") {
 
 // Limit requests from same API
 const limiter = rateLimit({
-  max: 100,
+  max: 10000,
   windowMs: 60 * 60 * 1000,
   message: "Too many requests from this IP, please try again in an hour!",
 });
@@ -49,8 +58,8 @@ app.use((req, res, next) => {
 // app.use('/', viewRouter);
 // app.use('/api/v1/tours', tourRouter);
 app.use("/api/v1/users", userRouter);
-// app.use('/api/v1/reviews', reviewRouter);
-// app.use('/api/v1/bookings', bookingRouter);
+app.use("/api/v1/flights", flightRouter);
+app.use("/api/v1/bookings", bookingRouter);
 
 app.use((err, req, res, next) => {
   const errorStatus = err.status || 500;

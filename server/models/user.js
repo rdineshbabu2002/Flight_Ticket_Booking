@@ -36,6 +36,14 @@ const userSchema = new mongoose.Schema({
       message: "Passwords are not the same!",
     },
   },
+  mobile: {
+    type: String,
+    required: [true, "Please add mobile number"],
+  },
+  city: {
+    type: String,
+    required: [true, "Please provide city"],
+  },
   passwordChangedAt: Date,
 });
 

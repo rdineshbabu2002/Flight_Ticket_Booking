@@ -9,6 +9,8 @@ const Usersignup = () => {
     role: "",
     password: "",
     passwordConfirm: "",
+    mobile: "",
+    city: "",
   });
   const onchange = (e) => {
     const { name, value } = e.target;
@@ -18,15 +20,14 @@ const Usersignup = () => {
   const submitHandler = async (e) => {
     e.preventDefault();
     console.log(user);
-    const response = await axios.post(
-      "http://localhost:8000/api/v1/users/signup/",
-      {
-        name: user.name,
-        email: user.email,
-        password: user.password,
-        passwordConfirm: user.passwordConfirm,
-      }
-    );
+    const response = await axios.post("/api/v1/users/signup/", {
+      name: user.name,
+      email: user.email,
+      password: user.password,
+      passwordConfirm: user.passwordConfirm,
+      mobile: user.mobile,
+      city: user.city,
+    });
     // const json = await response.json();
     console.log(response);
   };
@@ -35,7 +36,7 @@ const Usersignup = () => {
     <div>
       <div className="wrapper">
         <div className="container main">
-          <div className="row">
+          <div className="row rowele">
             <div className="col-md-6 side-image">
               <div className="text">
                 <p></p>
@@ -107,6 +108,11 @@ const Usersignup = () => {
                       className="input"
                       id="mobile"
                       name="mobile"
+                      value={user.mobile}
+                      onChange={(e) => {
+                        onchange(e);
+                      }}
+                      requ
                       required
                     />
                     <label htmlFor="mobile">Mobile</label>
@@ -128,6 +134,11 @@ const Usersignup = () => {
                       className="input"
                       id="city"
                       name="city"
+                      value={user.city}
+                      onChange={(e) => {
+                        onchange(e);
+                      }}
+                      requ
                       required
                     />
                     <label htmlFor="city">Enter City :</label>
@@ -140,7 +151,7 @@ const Usersignup = () => {
                 <div className="signin">
                   <span>
                     Already have an account?
-                    <a href="login.html">Login here here</a>
+                    <a href="/userlogin">Login here here</a>
                   </span>
                 </div>
               </div>

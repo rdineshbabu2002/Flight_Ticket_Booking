@@ -1,0 +1,51 @@
+.booking-card {
+  background-color: #fff;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.1);
+  padding: 20px;
+  margin-bottom: 20px;
+  display: flex;
+  gap: 6px;
+}
+
+.booking-card h2 {
+  font-size: 1.5rem;
+  margin-top: 0;
+}
+
+.booking-card p {
+  margin: 0;
+}
+
+.booking-card strong {
+  font-weight: bold;
+}
+
+.guest-details {
+  margin-top: 20px;
+}
+
+.guest-details h3 {
+  margin-top: 0;
+}
+
+.card {
+  padding: 16px;
+  box-shadow: rgba(17, 12, 46, 0.15) 0px 48px 100px 0px;
+  width: 300px;
+  margin: 32px;
+}
+
+.card-top {
+  display: grid;
+  grid-template-columns: repeat(
+    3,
+    1fr
+  ); /* creates 3 columns with equal width */
+  grid-template-rows: repeat(2, auto); /* creates 2 rows with auto height */
+  grid-gap: 20px; /* adds 20px gap between grid items */
+
+  align-items: center;
+  justify-content: center;
+}

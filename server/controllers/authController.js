@@ -12,17 +12,10 @@ const signToken = (id) => {
 const createSendToken = (user, statusCode, req, res) => {
   const token = signToken(user._id);
 
-  res.cookie("jwt", token, {
-    expires: new Date(
-      Date.now() + process.env.JWT_COOKIE_EXPIRES_IN * 24 * 60 * 60 * 1000
-    ),
-    // httpOnly: true,
-    // secure: req.secure || req.headers["x-forwarded-proto"] === "https",
-  });
-
-  // Remove password from output
+  const jwtMaxTime = 3 * 24 * 60 * 60 * 1000;
+  res.cookie("jwt", token, { maxAge: jwtMaxTime, httpOnly: false });
+  console.log(res.cookies);
   user.password = undefined;
-
   res.status(statusCode).json({
     status: "success",
     token,
@@ -39,11 +32,10 @@ exports.signup = async (req, res, next) => {
       email: req.body.email,
       password: req.body.password,
       passwordConfirm: req.body.passwordConfirm,
+      role: req.body.role,
+      mobile: req.body.mobile,
+      city: req.body.city,
     });
-    // const url = `${req.protocol}://${req.get("host")}/me`;
-    // console.log(url);
-    // await new Email(newUser, url).sendWelcome();
-
     createSendToken(newUser, 201, req, res);
   } catch (err) {
     next(err);
@@ -52,7 +44,7 @@ exports.signup = async (req, res, next) => {
 
 exports.login = async (req, res, next) => {
   try {
-    console.log(req);
+    // console.log(req);
     const { email, password } = req.body;
     if (!email || !password) {
       return res.status(400).json({ data: "Please Provide email or password" });
@@ -111,6 +103,7 @@ exports.protect = async (req, res, next) => {
 
     // GRANT ACCESS TO PROTECTED ROUTE
     req.user = currentUser;
+    // console.log(currentUser);
     res.locals.user = currentUser;
     next();
   } catch (err) {
@@ -140,6 +133,7 @@ exports.isLoggedIn = async (req, res, next) => {
       }
 
       // THERE IS A LOGGED IN USER
+      req.user = currentUser;
       res.locals.user = currentUser;
       return next();
     } catch (err) {
@@ -151,6 +145,7 @@ exports.isLoggedIn = async (req, res, next) => {
 
 exports.restrictTo = (...roles) => {
   return (req, res, next) => {
+    // console.log(...roles, req.user.role);
     if (!roles.includes(req.user.role)) {
       return res
         .status(403)

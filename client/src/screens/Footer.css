@@ -1,0 +1,97 @@
+.footer-main {
+  display: flex;
+  justify-content: center;
+  align-items: baseline;
+}
+.comp-1 {
+  display: flex;
+  padding-right: 180px;
+  padding-top: 40px;
+  padding-left: 40px;
+  padding-bottom: 30px;
+  width: 150px;
+  flex-direction: column;
+}
+.comp1 h1 {
+  font-size: medium;
+  padding: 10px 0px;
+}
+.comp1 p {
+  color: dimgrey;
+}
+.comp1 .fb {
+  padding: 10px 0px;
+}
+
+.comp-2 {
+  padding-right: 100px;
+}
+.comp-2 h1 {
+  font-size: medium;
+  padding: 10px 0px;
+  color: rgb(59, 58, 58);
+}
+.comp-2 p {
+  color: dimgrey;
+}
+.comp-2 .comp-home {
+  padding-bottom: 5px;
+}
+
+.comp-3 {
+  padding-right: 100px;
+}
+.comp-3 h1 {
+  font-size: medium;
+  padding: 10px 0px;
+  color: rgb(59, 58, 58);
+}
+.comp-3 p {
+  color: dimgrey;
+}
+.comp-3 .comp-terms {
+  padding-bottom: 5px;
+}
+
+.comp-4 {
+  padding-right: 100px;
+}
+.comp-4h1 {
+  font-size: medium;
+  padding: 10px 0px;
+  color: rgb(59, 58, 58);
+}
+.comp-4p {
+  color: dimgrey;
+}
+.comp-4 .comp-plans {
+  padding-bottom: 5px;
+}
+
+.social-media {
+  padding-right: 100px;
+}
+.social-media h1 {
+  font-size: medium;
+  padding: 10px 0px;
+  color: rgb(59, 58, 58);
+}
+.social-media p {
+  color: dimgrey;
+}
+
+.Copyright {
+  padding-top: 20px;
+  padding-bottom: 10px;
+}
+.Copyright .msg {
+  text-align: center;
+  font-size: small;
+}
+.Copyright img {
+  height: 10px;
+  width: 10px;
+}
+.Copyright * {
+  color: rgb(159, 159, 159);
+}
