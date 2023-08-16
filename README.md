@@ -1,7 +1,7 @@
 # Flight_Ticket_Booking
 <h1 align="center" id="title">FLIGHT BOOKING</h1>
+<img width="651" alt="image" src="https://github.com/rdineshbabu2002/Flight_Ticket_Booking/assets/90496628/90dc39f8-2adb-4dc4-8033-771432bbdc3a">
 
-<p align="center"><img src="[https://flightbooking-rouge.vercel.app/static/media/Lotus.ff70bb5395c77224f690.jpg](https://images.unsplash.com/photo-1573068057232-fa17a193d54d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=870&q=80)" alt="project-image"></p>
 
 <p id="description">This is the project which is for the flight booking and managing those bookings. both the user and the admin can use this website admin use it for managing flights and bookings user use it for book flights for personal or proffesional use.</p>
 
